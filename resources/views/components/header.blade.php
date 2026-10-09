@@ -1,5 +1,5 @@
 @php
-    $categories = \App\Models\Category::active()->orderBy('sort_order')->take(5)->get();
+    $categories = \App\Models\Category::active()->orderBy('sort_order')->take(4)->get();
 @endphp
 
 <header class="sticky top-0 z-40 w-full" x-data="{ mobileMenu: false, searchOpen: false }">
@@ -22,7 +22,7 @@
     <nav class="glass-header px-4 sm:px-6 lg:px-8 transition-colors">
         <div class="max-w-7xl mx-auto flex h-20 items-center justify-between gap-4">
             <!-- Left: Mobile Menu Trigger + Brand Logo -->
-            <div class="flex items-center gap-4">
+            <div class="flex flex-1 items-center gap-4">
                 <button type="button"
                         @click="mobileMenu = !mobileMenu"
                         class="lg:hidden p-2 text-zinc-400 hover:text-white transition"
@@ -33,22 +33,12 @@
                 </button>
 
                 <a href="{{ route('home') }}" class="flex items-center gap-3 group">
-                    <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-700 text-zinc-950 shadow-lg shadow-amber-500/20 ring-1 ring-amber-400/40 group-hover:scale-105 transition-transform">
-                        <span class="font-mono text-xl font-black tracking-tighter">Z</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="text-xl font-black tracking-[0.25em] text-white uppercase group-hover:text-amber-400 transition-colors">
-                            ZYRICZ
-                        </span>
-                        <span class="text-[9px] font-semibold tracking-widest text-amber-500 uppercase">
-                            Atelier &bull; Horology &bull; Sound
-                        </span>
-                    </div>
+                    <img src="{{ asset('images/logo-transparent.png') }}" alt="Zyricx Logo" class="h-14 object-contain group-hover:scale-105 transition-transform">
                 </a>
             </div>
 
             <!-- Center: Navigation Links -->
-            <div class="hidden lg:flex items-center gap-8">
+            <div class="hidden lg:flex items-center gap-5 xl:gap-8 shrink-0">
                 <a href="{{ route('products.index') }}"
                    class="text-sm font-medium text-zinc-300 hover:text-amber-400 transition-colors {{ request()->routeIs('products.index') && !request('category') ? 'text-amber-400 font-semibold' : '' }}">
                     All Collections
@@ -59,14 +49,10 @@
                         {{ $category->name }}
                     </a>
                 @endforeach
-                <a href="{{ route('orders.track') }}"
-                   class="text-sm font-medium text-zinc-400 hover:text-amber-400 transition-colors {{ request()->routeIs('orders.track') ? 'text-amber-400 font-semibold' : '' }}">
-                    Shipment Tracking
-                </a>
             </div>
 
             <!-- Right: Search, Wishlist, Cart, Account -->
-            <div class="flex items-center gap-3 sm:gap-4">
+            <div class="flex flex-1 items-center justify-end gap-3 sm:gap-4">
                 <!-- Search Button -->
                 <button type="button"
                         @click="searchOpen = true"

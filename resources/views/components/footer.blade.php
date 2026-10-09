@@ -60,12 +60,7 @@
             <!-- Brand Column -->
             <div class="lg:col-span-2 space-y-4">
                 <div class="flex items-center gap-3">
-                    <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 text-zinc-950 font-black">
-                        Z
-                    </div>
-                    <span class="text-lg font-black tracking-[0.25em] text-white uppercase">
-                        ZYRICZ
-                    </span>
+                    <img src="{{ asset('images/logo-transparent.png') }}" alt="Zyricx Logo" class="h-10 object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
                 </div>
                 <p class="text-xs text-zinc-400 leading-relaxed max-w-sm">
                     Atelier of modern precision horology, reference acoustics, and handcrafted leather carry. Built without compromise using aerospace-grade metals and meticulous attention to tactile sensation.
